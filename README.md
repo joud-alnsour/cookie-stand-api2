@@ -1,24 +1,17 @@
-# api-quick-start
+# Getting started
+- Check the app remotely
+     - This Django API app is deployed in the AWS.
+     - Database is deployed in the Elephantsql.
+     - Check the app at http://18.208.134.116:8000/api/cookie_stand/
+- Check the app in the local machine
 
-Template Project for starting up CRUD API with Django Rest Framework
+note: Database is deployed in the Elephantsql. Your local app will be connected to this remote database.
 
-## Customization Steps
-
-- DO NOT migrate yet
-- add additional dependencies as needed
-  - Re-export requirements.txt as needed
-- change `things` folder to the app name of your choice
-- Search through entire code base for `Thing`,`Things` and `things` to modify code to use your resource
-  - `project/settings.py`
-  - `project/urls.py`
-  - App's files
-    - `views.py`
-    - `urls.py`
-    - `admin.py`
-    - `serializers.py`
-    - `permissions.py`
-- Update ThingModel with fields you need
-  - Make sure to update other modules that would be affected by Model customizations. E.g. serializers, tests, etc.
-- Rename `project/.env.sample` to `.env` and update as needed
-- Run makemigrations and migrate commands
-- Optional: Update `api_tester.py`
+     - Clone down the repo.
+     - Download .env file and add it under cookie_stand_project folder. Make sure rename the file to .env.
+     - Run command docker-compose up --build -d to start docker container.
+     - Run command docker-compose run web python manage.py makemigrations and docker-compose run web python manage.py migrate to migrate.
+     - Run command docker-compose run web python manage.py createsuperuser and follow the prompt to create a super user.
+     - Run command docker-compose run web python manage.py collectstatic to create static files.
+     - Check out the app at http://0.0.0.0:8000/api/cookie_stand/.
+     - Run command docker-compose down to shot down the container.
